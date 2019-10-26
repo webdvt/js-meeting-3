@@ -1,24 +1,15 @@
 // 1. Call Back
-const posts = [
-  { title: 'Post One', body: 'This is post one' },
-  { title: 'Post Two', body: 'This is post two' }
-];
+const posts = [];
 
-function createPost(post, callback) {
+function createPost(post) {
   setTimeout(() => {
-    posts.push(post);
-    console.log('new post added!');
-    callback();
+
   }, 2000);
 }
 
 function getPosts() {
   setTimeout(function () {
-    let output = '';
-    posts.forEach(function (post) {
-      output += `<li>${post.title}</li>`;
-    });
-    document.body.innerHTML = output;
+
   }, 1000);
 }
 
@@ -47,17 +38,7 @@ has already finished execution. */
 function createPost2(post) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      posts.push(post);
-      const error = false;
-      // error = true;
 
-      if (!error) {
-        console.log('new post added!');
-        resolve();
-
-      } else {
-        reject('Error: something went wrong');
-      }
     }, 2000);
   });
 }
@@ -87,9 +68,9 @@ const promise3 = new Promise((resolve, reject) => {
 });
 
 // Promise.all([promise1, promise2, promise3])
-//   .then((values) => {
-//     console.log(values);
-//   });
+// //   .then((values) => {
+// //     console.log(values);
+// //   });
 
 // Observation?
 
@@ -101,9 +82,8 @@ const promise3 = new Promise((resolve, reject) => {
 all of them are either resolved or rejected */
 
 // 3. Async/Await Syntax
-async function init() {
-  await createPost2({ title: 'Post Three', body: 'This is post three' });
-  getPosts();
+function init() {
+
 }
 
 // init();
